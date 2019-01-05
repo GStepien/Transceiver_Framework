@@ -1,0 +1,290 @@
+{
+	"other_objects" : {		
+		"output_path" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/transceiver_framework/muxdemux/output/output.csv"
+					}]
+			}
+		},		
+		"num_parallel_lanes" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",						
+						"value" : 5
+					}]
+			}
+		},
+		"max_data_chunk_size" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",						
+						"value" : 100
+					}]
+			}
+		},
+		"in_queue_capacity" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100
+					}]
+			}
+		},
+		"in_queue_add_timeout" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 600000
+					}]
+			}
+		},		
+		"executor_service" : {
+			"classname" : "gs.utils.Concurrency$ExceptionHandlerThreadPoolExecutor",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.utils.Concurrency$ExceptionHandlerThreadPoolExecutor",
+				"methodname" : "newCachedThreadPoolExecutor",
+				"argument_types" : [],
+				"arguments" : []
+			}			
+		}
+	},
+	"concurrent_tasks" : {
+		"foo_source_transmitter" : {
+			"classname" : "gs.examples.tf.muxdemux.FooSourceTransmitterTask",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int", "int"],
+				"arguments" : [{
+						"type" : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_parallel_lanes"
+					}
+				]
+			}
+		},
+		"foo_transceiver" : {
+			"classname" : "gs.examples.tf.muxdemux.FooTransceiverTask",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.lang.Integer",
+					"java.lang.Long",
+					"int", 
+					"java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}
+		},
+		"foo_target_receiver" : {
+			"classname" : "gs.examples.tf.muxdemux.FooTargetReceiverTask",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.Integer", "java.lang.Long", "int", "java.lang.String"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_parallel_lanes"
+					},
+					{
+						"type"  : "reference",
+						"value" : "output_path"
+					}
+				]
+			}	
+		}
+	},
+	"multi_tasks" : {
+		"foo_demux_transmitter" : {
+			"classname" : "gs.tf.core.GenericDemuxMultiTransmitterTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericDemuxMultiTransmitterTask$AbstractSourceTransmitterTask", 
+					"int", 
+					"int", 
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "foo_source_transmitter"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_parallel_lanes"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}		
+		},
+		"foo_multi_transceiver" : {
+			"classname" : "gs.tf.core.GenericMultiTransceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.util.Collection", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.examples.tf.muxdemux.FooTransceiverTask",
+						"values" : ["foo_transceiver"],
+						"numbers" : ["num_parallel_lanes"]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}
+		},
+		"foo_mux_receiver" : {
+			"classname" : "gs.tf.core.GenericMuxMultiReceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericMuxMultiReceiverTask$AbstractTargetReceiverTask", 
+					"int",
+					"int",
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService",
+					"[Ljava.lang.Object;"],
+				"arguments" : [
+					{
+						"type"  : "reference",
+						"value" : "foo_target_receiver"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_parallel_lanes"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					},
+					{
+						"type" : "reference_obj_array",
+						"entry_type" : "java.lang.Object",						
+						"values" : [],
+						"numbers" : []
+					}
+				]
+			}
+		}
+	},
+	"closed_multi_task_chain" : {
+		"01_main" : {
+			"classname" : "gs.tf.core.GenericClosedMultiTaskChain",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.util.Collection", "java.util.Map", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.tf.core.MultiTask",
+						"values" : ["foo_demux_transmitter", "foo_multi_transceiver", "foo_mux_receiver"],
+						"numbers" : [1,1,1]
+					},
+					{
+						"type" : "reference_map",
+						"entry_types" : ["gs.tf.core.MultiTask", "gs.tf.core.MultiTask"],
+						"value" : [
+							{"foo_demux_transmitter" : ["foo_multi_transceiver"]},
+							{"foo_multi_transceiver" : ["foo_mux_receiver"]}
+						]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}			
+		}			
+	}
+}

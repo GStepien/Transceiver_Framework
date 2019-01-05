@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+   
+    <parent>
+        <groupId>gs.tf</groupId>
+        <artifactId>common</artifactId>
+        <version>[1.0.0,2.0.0)</version>
+        <relativePath>../../common</relativePath>
+    </parent>
+
+    <artifactId>mdp</artifactId>
+    <version>1.0.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>gs.tf</groupId>
+            <artifactId>transceiver_framework</artifactId>
+            <version>[1.0.0,2.0.0)</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.rosuda.REngine</groupId>
+            <artifactId>Rserve</artifactId>
+            <version>1.8.1</version>
+        </dependency>
+    </dependencies>
+</project>

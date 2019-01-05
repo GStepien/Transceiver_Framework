@@ -1,0 +1,9 @@
+{
+	"transceiver_structure_json" : "./examples/mdp/01/config/transceiver_structure.json",
+	"run_for" : 1800000,
+	"logger_level" : "ALL",
+	"below_info_log_file" : "./examples/mdp/01/logs/belowInfoOut.log",
+	"info_log_file" : "./examples/mdp/01/logs/infoOut.log",
+	"warning_and_above_log_file" : "./examples/mdp/01/logs/warnAndErrOut.log",
+	"main_sleep_interval" : 6000
+}

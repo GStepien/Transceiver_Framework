@@ -1,0 +1,284 @@
+{
+	"rnd_seed" : 234545,
+	"global_init_code" : [	  
+		"# Constants:",
+		
+		"NA_char <- \"NA\"",
+
+		"NA_rnd_walk_target_value <- 0",
+		"NA_rnd_walk_initial_value <- 0",
+		"NA_rnd_walk_range <- 5",
+		"NA_rnd_walk_mean_step_size <- 1",
+		"NA_rnd_walk_stddev_step_factor <- 0.3",
+
+		"padding_NA_rnd_walk_target_value <- NA_rnd_walk_target_value",
+		"padding_NA_rnd_walk_initial_value <- NA_rnd_walk_initial_value",
+		"padding_NA_rnd_walk_range <- NA_rnd_walk_range",
+		"padding_NA_rnd_walk_mean_step_size <- NA_rnd_walk_mean_step_size",
+		"padding_NA_rnd_walk_stddev_step_factor <- NA_rnd_walk_stddev_step_factor",
+
+						  
+		"inter_NA_rnd_walk_target_value <- NA_rnd_walk_target_value",
+		"inter_NA_rnd_walk_initial_value <- NA_rnd_walk_initial_value",
+		"inter_NA_rnd_walk_range <- NA_rnd_walk_range",
+		"inter_NA_rnd_walk_mean_step_size <- NA_rnd_walk_mean_step_size",
+		"inter_NA_rnd_walk_stddev_step_factor <- NA_rnd_walk_stddev_step_factor",
+
+		"intra_NA_rnd_walk_target_value <- NA_rnd_walk_target_value",
+		"intra_NA_rnd_walk_initial_value <- NA_rnd_walk_initial_value",
+		"intra_NA_rnd_walk_range <- NA_rnd_walk_range",
+		"intra_NA_rnd_walk_mean_step_size <- NA_rnd_walk_mean_step_size",
+		"intra_NA_rnd_walk_stddev_step_factor <- NA_rnd_walk_stddev_step_factor",
+			  
+		"seeded_NA_rnd_walk_target_value <- NA_rnd_walk_target_value",
+		"seeded_NA_rnd_walk_initial_value <- NA_rnd_walk_initial_value",
+		"seeded_NA_rnd_walk_mean_step_size <- NA_rnd_walk_mean_step_size",
+		"seeded_NA_rnd_walk_stddev_step_factor <- NA_rnd_walk_stddev_step_factor",
+						  
+		"seeded_NA_rnd_walk_range_min_factor <- 2.0",
+		"seeded_NA_rnd_walk_range_max_factor <- 2.0",
+		"min_seeded_NA_rnd_walk_range <- seeded_NA_rnd_walk_range_min_factor * NA_rnd_walk_range",
+		"max_seeded_NA_rnd_walk_range <- seeded_NA_rnd_walk_range_max_factor * NA_rnd_walk_range",
+		"mean_seeded_NA_rnd_walk_range <- ((seeded_NA_rnd_walk_range_min_factor + seeded_NA_rnd_walk_range_max_factor) / 2) * NA_rnd_walk_range",
+		"stddev_seeded_NA_rnd_walk_range <- (max_seeded_NA_rnd_walk_range -  min_seeded_NA_rnd_walk_range) / 4",
+
+		"min_inter_NA_label_length <- 500",
+		"max_inter_NA_label_length <- 1000",
+		"mean_inter_NA_label_length <- 750",
+		"stddev_inter_NA_label_length <- 125",
+
+		"min_padding_NA_label_length <- 10",
+		"max_padding_NA_label_length <- 100",
+		"mean_padding_NA_label_length <- 55",
+		"stddev_padding_NA_label_length <- 22.5",
+
+						  
+		"min_intra_NA_label_length <- 50",
+		"max_intra_NA_label_length <- 100",
+		"mean_intra_NA_label_length <- 75",
+		"stddev_intra_NA_label_length <- 12.5",
+	                      				                   
+		"min_seeded_NA_label_length <- 100",
+		"max_seeded_NA_label_length <- 100",
+		"mean_seeded_NA_label_length <- 275 # Mean of min and max",
+		"stddev_seeded_NA_label_length <- 112.5 # (Mean - min)/2",
+						  
+		"min_char_label_length <- 1",
+		"max_char_label_length <- 1",
+		"mean_char_label_length <- 1",
+		"stddev_char_label_length <- 0",
+						  
+		"# Helper fields for generation of subsequences",
+		"invisible(source(file.path(\".\", \"utils\", \"utils_iterators.R\"), local = TRUE))",
+	        "invisible(source(file.path(\".\", \"datastream\", \"numeric_iterators.R\"), local = TRUE))",	                      
+		"invisible(source(file.path(\".\", \"datastream\", \"character_iterators.R\"), local = TRUE))",	       
+						 
+		"it <- get_utils_iterators_env()",
+		"nit <- get_numeric_iterators_env()",
+		"cit <- get_character_iterators_env()",						  
+						  
+		"#get_oscillating_func <- function(amplitude, freq, off_val = 0, off_arg = 0, func = sin) {",
+		"#  num_call <- 0",
+		"#  result <- function() {",
+		"#    x <- off_val + amplitude * func(2 * pi * freq * num_call)",
+		"#    num_call <<- num_call + 1",
+		"#    return(x)",
+		"#  }",
+		"#  return(result)",
+		"#}",
+		  
+		"#get_inverse_func <- function(func) {",
+		"#  f <- func",
+		"#  result <- function(...) {",
+		"#    return(1/f(...))",
+		"#  }",
+		"#  return(result)",
+		"#}",
+		  
+		"get_inter_NA_label_length <- function(){",
+		"  return(round(max(1, min_inter_NA_label_length,",
+		"    min(max_inter_NA_label_length, rnorm(1, mean = mean_inter_NA_label_length, sd = stddev_inter_NA_label_length)))))",
+		"}",
+
+		"get_padding_NA_label_length <- function(){",
+		"  return(round(max(1, min_padding_NA_label_length,",
+		"    min(max_padding_NA_label_length, rnorm(1, mean = mean_padding_NA_label_length, sd = stddev_padding_NA_label_length)))))",
+		"}",
+
+		
+		"get_intra_NA_label_length <- function(){",
+		"  return(round(max(1, min_intra_NA_label_length,",
+		"    min(max_intra_NA_label_length, rnorm(1, mean = mean_intra_NA_label_length, sd = stddev_intra_NA_label_length)))))",
+		"}",
+
+		"get_seeded_NA_rnd_walk_length <- function() {",
+		"  return(round(max(1, min_seeded_NA_label_length,",
+		"    min(max_seeded_NA_label_length, rnorm(1, mean = mean_seeded_NA_label_length, sd = stddev_seeded_NA_label_length)))))",
+		"}",
+		  
+		"get_char_label_length <- function() {",
+		"  return(round(max(1, min_char_label_length,",
+		"    min(max_char_label_length, rnorm(1, mean = mean_char_label_length, sd = stddev_char_label_length)))))",
+		"}",		
+  
+		"get_character_queue <- function(assertions_status, fixed_length, element) {",
+		"  return(cit$Character_Queue_Iterator$new(",
+		"    assertions_status = assertions_status,",
+		"    elements = list(element),",
+		"    lengths = fixed_length,",
+		"    lock = TRUE))",
+		"}",
+		  
+		"get_seeded_NA_rnd_walk_seed <- function() {",
+		"  return(sample(.Machine$integer.max, size = 1))",
+		"}",
+		  
+		"get_seeded_NA_rnd_walk_range <- function() {",
+		"  return(round(max(0.001, min_seeded_NA_rnd_walk_range,",
+		"    min(max_seeded_NA_rnd_walk_range, rnorm(1, mean = mean_seeded_NA_rnd_walk_range, sd = stddev_seeded_NA_rnd_walk_range)))))",
+		"}",
+		  
+		"get_seeded_NA_rnd_walk <- function(assertions_status, rnd_seed, fixed_length, range) {",
+		"  return(nit$Random_Walk_Numeric_Iterator$new(",
+		"    assertions_status = assertions_status,",
+		"    stddev_is_neg_step = range,",
+		"    mean_step = seeded_NA_rnd_walk_mean_step_size,",
+		"    stddev_step = seeded_NA_rnd_walk_stddev_step_factor * seeded_NA_rnd_walk_mean_step_size,",
+		"    initial_value = seeded_NA_rnd_walk_initial_value,",
+		"    target_value = seeded_NA_rnd_walk_target_value,",
+		"    seed = rnd_seed,",
+		"    fixed_length = fixed_length))",
+		"}"],
+						  
+	"decorators" : {},
+	
+	"objects" : {
+		"seeded_NA_rnd_walk" : {
+			"location" : "",
+			"init_code" : [
+				"rnd_seed <- get_seeded_NA_rnd_walk_seed()",
+				"fixed_length <- get_seeded_NA_rnd_walk_length()",
+				"range <- get_seeded_NA_rnd_walk_range()"],			
+			"gen_code" : ["get_seeded_NA_rnd_walk(rnd_seed = rnd_seed, fixed_length = fixed_length, range = range)"],			
+						  
+			"required_params" : ["assertions_status"],			
+			"decorate_with" : [],
+			"duplicate" : 200
+		},
+		"NA_rnd_walk" : {
+			"location" : "nit",
+			"init_code" : [""],
+			
+			"gen_code" : [
+				"Random_Walk_Numeric_Iterator$new(",
+				"  stddev_is_neg_step = NA_rnd_walk_range,",
+				"  mean_step = NA_rnd_walk_mean_step_size,",
+				"  stddev_step = NA_rnd_walk_stddev_step_factor * NA_rnd_walk_mean_step_size,",
+				"  target_value = NA_rnd_walk_target_value)"],			
+						  
+			"required_params" : ["assertions_status", "fixed_length", "initial_value"],			
+			"decorate_with" : [],
+			"is_NA_rnd_walk" : true
+		},
+		"padding_NA_rnd_walk" : {
+			"location" : "nit",
+			"init_code" : [""],
+			
+			"gen_code" : [
+				"Random_Walk_Numeric_Iterator$new(",
+				"  fixed_length = get_padding_NA_label_length(),",
+				"  stddev_is_neg_step = padding_NA_rnd_walk_range,",
+				"  mean_step = padding_NA_rnd_walk_mean_step_size,",
+				"  stddev_step = padding_NA_rnd_walk_stddev_step_factor * padding_NA_rnd_walk_mean_step_size,",
+				"  target_value = padding_NA_rnd_walk_target_value)"],			
+						  
+			"required_params" : ["assertions_status", "initial_value"],			
+			"decorate_with" : [],
+			"is_padding_NA_rnd_walk" : true
+		},
+		
+		"intra_NA_rnd_walk" : {
+			"location" : "nit",
+			"init_code" : [""],
+			
+			"gen_code" : [
+				"Random_Walk_Numeric_Iterator$new(",
+				"  fixed_length = get_intra_NA_label_length(),",
+				"  stddev_is_neg_step = intra_NA_rnd_walk_range,",
+				"  mean_step = intra_NA_rnd_walk_mean_step_size,",
+				"  stddev_step = intra_NA_rnd_walk_stddev_step_factor * intra_NA_rnd_walk_mean_step_size,",
+				"  target_value = intra_NA_rnd_walk_target_value)"],			
+						  
+			"required_params" : ["assertions_status", "initial_value"],			
+			"decorate_with" : [],
+			"is_intra_NA_rnd_walk" : true
+		},		
+		"inter_NA_rnd_walk" : {
+			"location" : "nit",
+			"init_code" : [""],
+			
+			"gen_code" : [
+				"Random_Walk_Numeric_Iterator$new(",
+				"  fixed_length = get_inter_NA_label_length(),",
+				"  stddev_is_neg_step = inter_NA_rnd_walk_range,",
+				"  mean_step = inter_NA_rnd_walk_mean_step_size,",
+				"  stddev_step = inter_NA_rnd_walk_stddev_step_factor * inter_NA_rnd_walk_mean_step_size,",
+				"  target_value = inter_NA_rnd_walk_target_value)"],			
+						  
+			"required_params" : ["assertions_status", "initial_value"],			
+			"decorate_with" : [],
+			"is_inter_NA_rnd_walk" : true
+		},		
+		"character_sequence" : {
+			"location" : "",
+			"init_code" : [""],
+			
+			"gen_code" : ["get_character_queue(fixed_length = get_char_label_length())"],			
+						  
+			"required_params" : ["assertions_status", "element"],			
+			"decorate_with" : [],
+			"is_character_sequence" : true
+		},		
+		"NA_character_sequence" : {
+			"location" : "",
+			"init_code" : [""],
+			
+			"gen_code" : ["get_character_queue(element = NA_char)"],			
+						  
+			"required_params" : ["assertions_status", "fixed_length"],			
+			"decorate_with" : [],
+			"is_NA_character_sequence" : true
+		},
+		"padding_NA_character_sequence" : {
+			"location" : "",
+			"init_code" : [""],
+			
+			"gen_code" : ["get_character_queue(fixed_length = get_padding_NA_label_length(), element = NA_char)"],			
+						  
+			"required_params" : ["assertions_status"],			
+			"decorate_with" : [],
+			"is_padding_NA_character_sequence" : true
+		},
+		
+		"intra_NA_character_sequence" : {
+			"location" : "",
+			"init_code" : [""],
+			
+			"gen_code" : ["get_character_queue(fixed_length = get_intra_NA_label_length(), element = NA_char)"],			
+						  
+			"required_params" : ["assertions_status"],			
+			"decorate_with" : [],
+			"is_intra_NA_character_sequence" : true
+		},		
+		"inter_NA_character_sequence" : {
+			"location" : "",
+			"init_code" : [""],
+			
+			"gen_code" : ["get_character_queue(fixed_length = get_inter_NA_label_length(), element = NA_char)"],			
+						  
+			"required_params" : ["assertions_status"],			
+			"decorate_with" : [],
+			"is_inter_NA_character_sequence" : true
+		}
+	}
+}

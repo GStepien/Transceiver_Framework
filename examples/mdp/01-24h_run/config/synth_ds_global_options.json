@@ -1,0 +1,102 @@
+{
+	"general" : {
+		"assertions_status" : false,
+	   	"numeric_iterators_num" : 2,
+        	"character_iterators_num" : 2,
+		"ground_truth_name" : "label",
+		"idle_event_name" : "idle",
+		"NA_label" : "NA",
+		"timestamp_name" : "time / ms",        
+		"recreate_voc" : true,
+		"recreate_lm" : true,
+		"plot_lm" : true
+	},
+	
+	"synth_ds_its" : {
+		"individual_subparams" : false,
+		
+		"noise_decorator_params" : {
+			"noise_mean" : 0.1,
+            "noise_stddev" : 0.03,
+            "positive_prob" : 1			
+		},        
+		"num_concat_iterator_params" : {
+            "initial_offset" : 0,
+            "offset_mean_max_num_elems" : 5,
+            "offset_sd_max_num_elems" : 5
+		},        
+        	"delay_decorator_params" : {
+			"delay_mean" : 10,
+            "delay_stddev" : 1,
+            "delay_min" : 1,
+            "delay_max" : 30,
+            "annotation_time_start" : 0,
+			"max_num_timestamps" : 10000
+		},
+		"synth_ds_rnd_seed" : 8484568,
+		
+		"output_as_frame" : true,
+		".debug_mode" : false,
+		".verbose" : false,
+		".NA_character_sequence_label" : "NA_char",
+		".inter_NA_character_sequence_label" : "inter_NA_char",
+		".padding_NA_character_sequence_label" : "padding_NA_char",
+		".intra_NA_character_sequence_label" : "intra_NA_char",
+		".NA_rnd_walk_label" : "NA_rnd_walk",
+		".inter_NA_rnd_walk_label" : "inter_NA_rnd_walk",
+		".padding_NA_rnd_walk_label" : "padding_NA_rnd_walk",
+		".intra_NA_rnd_walk_label" : "intra_NA_rnd_walk"
+	},
+	
+	"synth_ds_its_factory" : {
+		"json_file" : "./../../../../examples/mdp/01-24h_run/config/synth_ds_sequences.json"
+	},
+	
+	"multivar_count_lm" : {
+		"json_file" : "./../../../../examples/mdp/01-24h_run/models/lm.lm",
+		"plot_lm_rnd_seed" : 23987492,
+		"plot_state_names" : false,
+		"plot_width" : 750,
+        "plot_height" :  750
+	},
+	
+	"multivar_char_voc" : {
+		"json_file" : "./../../../../examples/mdp/01-24h_run/models/voc.vocab",
+		
+		"char_voc" : [],
+		"char_voc_duplicates" : [
+			{"char_label" : 200}],
+		"words_per_dim_weights" : 1,
+		"max_words_per_dim" : 10,
+		"min_words_per_dim" : 10,
+		"allow_word_overlaps" : false,
+		"voc_rnd_seed" : 4545		
+	},
+	
+	"trainer_multivar_count_lm" : {
+		"max_history_length" : 3,
+        "simple_smooth_factor" : 0.1,
+        "max_num_edge_insert_iterations" : 60,
+		"max_num_edge_weight_transitions" : 1000,
+		"transition_to_new_state_weight" : 4.0,
+        "transition_to_existing_state_weight" : 5.0,
+       	"min_transition_weight" : 1,
+        "max_transition_weight" : 10,
+		"train_lm_rnd_seed" : 993234,
+		"first_plot_out_path" : "./../../../../examples/mdp/01-24h_run/images/lm.svg"
+	},
+	
+	"ds_visualization" : {
+		"replot_min_interval" : 10000,
+        "max_x_progress" : 10000,
+        "x_axis_range" : 100000,
+        "graph_labels" : null,
+		"y_axis_labels" : "",
+        "plot_width" : 1350,
+        "plot_height" : 750,
+        "plot_height_per_graph" : null,
+        "window_label" : "Graphs",
+		"color_rnd_seed" : 385921,
+		"first_plot_out_path" : "./../../../../examples/mdp/01-24h_run/images/datastream.svg"
+	}
+}

@@ -1,0 +1,1179 @@
+{
+	"other_objects" : {
+		"synth_ds_config" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/mdp/01/config/synth_ds_global_options.json"
+					}]
+			}
+		},
+		"synth_ds_driver" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./mdp/mdp/submodules/SDG/drivers/driver.R"
+					}]
+			}
+		},
+		"f1_out_path" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/mdp/01/stats/f1.csv"
+					}]
+			}
+		},
+		"language_model_stat_out_path" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/mdp/01/stats/lm_error.csv"
+					}]
+			}
+		},
+		"visualize_matrix_profile_config" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/mdp/01/config/matrix_profile_visualization.json"
+					}]
+			}
+		},
+		"empty_language_model_config" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "./examples/mdp/01/config/empty_language_model_global_options.json"
+					}]
+			}
+		},
+		"r_port" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.tf.factories.StaticFactoryUtils",
+				"methodname" : "intFromFile",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [
+					{
+						"type" : "constant",
+						"value" : "./examples/mdp/01/tmp/port"
+					}
+				]
+			}
+		},
+		"min_lm_error_elements" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100
+					}]
+			}
+		},
+		"language_model_rnd_seed" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 6516512
+					}]
+			}
+		},
+		"language_model_idle_timeout" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 4000
+					}]
+			}
+		},
+		"in_queue_add_timeout" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 600000
+					}]
+			}
+		},
+		"language_model_sync_mux_rnd_seed" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 454578
+					}]
+			}
+		},
+		"language_model_mux_timeout" : {
+			"classname" : "java.lang.Long",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["long"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 3600000
+					}]
+			}
+		},
+		"num_numeric_in" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",						
+						"value" : 2
+					}]
+			}
+		},
+		"num_character_in" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",						
+						"value" : 2
+					}]
+			}
+		},
+		"max_data_chunk_size" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",						
+						"value" : 100
+					}]
+			}
+		},
+		"num_total_in" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.tf.factories.StaticFactoryUtils",
+				"methodname" : "sum",
+				"argument_types" : ["int", "int"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "num_numeric_in"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_character_in"
+					}
+				]
+			}
+		},
+		"in_queue_capacity" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100
+					}]
+			}
+		},
+		"lang_mux_in_queue_capacity" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100000
+					}]
+			}
+		},
+		"visualize_matrix_profile" : {
+			"classname" : "java.lang.Boolean",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["boolean"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : true
+					}]
+			}
+		},
+		"motif_detector_buffer_size" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 10000
+					}]
+			}
+		},
+		"motif_detector_buffer_purge_factor" : {
+			"classname" : "java.lang.Double",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["double"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 0.1
+					}]
+			}
+		},
+		"out_queue_capacity" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "reference",
+						"value" : "in_queue_capacity"
+					}]
+			}
+		},		
+		"matrix_profile_hysteresis_min_threshold" : {
+			"classname" : "java.lang.Double",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["double"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 0.025
+					}]
+			}
+		},
+		"matrix_profile_hysteresis_max_threshold" : {
+			"classname" : "java.lang.Double",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["double"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 0.075
+					}]
+			}
+		},
+		"matrix_profile_filter_mode" : {
+			"classname" : "gs.mdp.motifs.MatrixProfileMotifSearch$FilterMode",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.mdp.motifs.MatrixProfileMotifSearch$FilterMode",
+				"methodname" : "valueOf",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [
+					{
+						"type" : "constant",
+						"value" : "NONE"
+					}
+				]
+			}
+		},
+		"num_matrix_profiles" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 1
+					}]
+			}
+		},	
+		"min_motif_length" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100
+					}]
+			}
+		},
+		"max_motif_length" : {
+			"classname" : "java.lang.Integer",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 100
+					}]
+			}
+		},
+		"exclusion_zone_factor" : {
+			"classname" : "java.lang.Double",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["double"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : 1.0
+					}]
+			}
+		},
+		"motif_begin_label" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "MOTIF_BEGIN"
+					}]
+			}
+		},
+		"inside_motif_label" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "MID_MOTIF"
+					}]
+			}
+		},
+		"non_motif_label" : {
+			"classname" : "java.lang.String",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.String"],
+				"arguments" : [{
+						"type"  : "constant",
+						"value" : "NA"
+					}]
+			}
+		},
+		"motif_detector" : {
+			"classname" : "gs.mdp.motifs.MatrixProfileMotifSearch",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"int",
+					"double",
+					"double",
+					"int",
+					"int",
+					"java.lang.String",
+					"java.lang.String",
+					"java.lang.String",
+					"java.util.List",
+					"double",
+					"boolean",
+					"java.lang.Integer",
+					"java.lang.String",
+					"gs.mdp.motifs.MatrixProfileMotifSearch$FilterMode",
+					"java.util.concurrent.ExecutorService"
+					],
+				"arguments" : [
+					{
+						"type"  : "reference",
+						"value" : "num_matrix_profiles"
+					},
+					{
+						"type"  : "reference",
+						"value" : "matrix_profile_hysteresis_min_threshold"
+					},
+					{
+						"type" : "reference",
+						"value" : "matrix_profile_hysteresis_max_threshold"
+					},
+					{
+						"type"  : "reference",
+						"value" : "min_motif_length"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_motif_length"
+					},
+					{
+						"type"  : "reference",
+						"value" : "motif_begin_label"
+					},
+					{
+						"type"  : "reference",
+						"value" : "inside_motif_label"
+					},
+					{
+						"type"  : "reference",
+						"value" : "non_motif_label"
+					},
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.utils.MathUtils",
+						"values" : ["math_utils"],
+						"numbers" : ["num_matrix_profiles"]
+					},
+					{
+						"type"  : "reference",
+						"value" : "exclusion_zone_factor"
+					},
+					{
+						"type"  : "reference",
+						"value" : "visualize_matrix_profile"
+					},
+					{
+						"type"  : "reference",
+						"value" : "r_port"
+					},
+					{
+						"type"  : "reference",
+						"value" : "visualize_matrix_profile_config"
+					},
+					{
+						"type" : "reference",
+						"value" : "matrix_profile_filter_mode"
+					},
+					{
+						"type"  : "reference",
+						"value" : "executor_service"
+					}]
+			}
+		},
+		"math_utils" : {
+			"classname" : "gs.mdp.utils.r.RMathUtils",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["gs.utils.r.SimpleRInterface"],
+				"arguments" : [{
+						"type" : "reference",
+						"value" : "math_utils_r_interface"
+					}]
+			}	
+		},
+		"math_utils_r_interface" : {
+			"classname" : "gs.mdp.utils.r.SimpleConcurrentR",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.Integer"],
+				"arguments" : [{
+						"type" : "reference",
+						"value" : "r_port"
+					}]
+			}
+		},	
+		"numeric_indices" : {
+			"classname" : "java.util.List",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.tf.factories.StaticFactoryUtils",
+				"methodname" : "enumerateIndices",
+				"argument_types" : ["int", "int"],
+				"arguments" : [
+					{
+						"type" : "constant",
+						"value" : 0
+					},
+					{
+						"type" : "reference",
+						"value" : "num_numeric_in"
+					}
+				]
+			}	
+		},
+		"executor_service" : {
+			"classname" : "gs.utils.Concurrency$ExceptionHandlerThreadPoolExecutor",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.utils.Concurrency$ExceptionHandlerThreadPoolExecutor",
+				"methodname" : "newCachedThreadPoolExecutor",
+				"argument_types" : [],
+				"arguments" : []
+			}			
+		}
+	},
+	"concurrent_tasks" : {
+		"synth_ds_transmitter" : {
+			"classname" : "gs.mdp.datasources.SyntheticDatastreamTransmitter",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int", "int", "int", "java.lang.String", "java.lang.String"],
+				"arguments" : [{
+						"type" : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_total_in"
+					},
+					{
+						"type" : "reference",
+						"value" : "r_port"
+					},
+					{
+						"type" : "reference",
+						"value" : "synth_ds_driver"
+					},
+					{
+						"type" : "reference",
+						"value" : "synth_ds_config"
+					}]
+			}
+		},		
+		"synth_ds_visualization_receiver" : {
+			"classname" : "gs.mdp.visualizations.DatastreamVisualizationReceiver",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.lang.Integer", "java.lang.Long", "int", "int", "java.lang.String", "java.lang.String"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_total_in"
+					},
+					{
+						"type"  : "reference",
+						"value" : "r_port"
+					},
+					{
+						"type" : "reference",
+						"value" : "synth_ds_driver"
+					},
+					{
+						"type" : "reference",
+						"value" : "synth_ds_config"
+					}
+				]
+			}	
+		},
+		"motif_detector_transceiver" : {
+			"classname" : "gs.mdp.motifs.MotifDetectorTransceiver",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.lang.Integer",
+					"java.lang.Long",
+					"int", 
+					"java.util.concurrent.ExecutorService",
+					"int",
+					"double",
+					"java.lang.Integer",
+					"gs.mdp.motifs.MotifSearch",
+					"gs.utils.MathUtils"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",
+						"value" : "executor_service"
+					},
+					{
+						"type" : "reference",
+						"value" : "motif_detector_buffer_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "motif_detector_buffer_purge_factor"
+					},
+					{
+						"type" : "reference",
+						"value" : "out_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "motif_detector"
+					},
+					{
+						"type" : "reference",
+						"value" : "math_utils"
+					}
+				]
+			}
+		},
+		"f1_motif_evaluation_receiver" : {
+			"classname" : "gs.mdp.evaluation.StringDataF1Receiver",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.lang.Integer",
+					"java.lang.Long",
+					"int",
+					"java.lang.String",
+					"java.lang.String",
+					"java.lang.String",
+					"java.lang.String"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_numeric_in"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "f1_out_path"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "motif_begin_label"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "inside_motif_label"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "non_motif_label"
+					}
+				]
+			}
+		},
+		"language_model_receiver" : {
+			"classname" : "gs.mdp.langmodels.DatastreamLanguageModelReceiver",
+			"reuse_as_arg" : false,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.lang.Integer",
+					"java.lang.Long",
+					"int",
+					"int",
+					"java.lang.String",
+					"java.lang.String",
+					"java.lang.String",
+					"java.lang.String",
+					"java.util.Collection",
+					"java.lang.String",
+					"int",
+					"java.lang.Long",
+					"java.lang.Long"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_total_in"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "r_port"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "synth_ds_driver"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "empty_language_model_config"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "motif_begin_label"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "non_motif_label"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "numeric_indices"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "language_model_stat_out_path"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "min_lm_error_elements"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "language_model_rnd_seed"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "language_model_idle_timeout"
+					}
+				]
+			}
+		}
+	},
+	"multi_tasks" : {
+		"synth_ds_demux" : {
+			"classname" : "gs.tf.core.GenericDemuxMultiTransmitterTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericDemuxMultiTransmitterTask$AbstractSourceTransmitterTask", 
+					"int", 
+					"int", 
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type"  : "reference",						
+						"value" : "synth_ds_transmitter"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "num_total_in"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}		
+		},
+		"synth_ds_junction" : {
+			"classname" : "gs.tf.core.GenericJunctionMultiTransceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int", "java.lang.Integer", "java.lang.Long", "int", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "num_total_in"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}
+		},
+		"synth_ds_junction_transmitter" : {
+			"classname" : "gs.tf.core.MultiTransmitterTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.tf.core.GenericJunctionMultiTransceiverTask",
+				"methodname" : "createMultiTransmitterFromJunction",
+				"argument_types" : ["gs.tf.core.GenericJunctionMultiTransceiverTask"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "synth_ds_junction"
+					}
+				]
+			}
+		},
+		"synth_ds_visualization_mux" : {
+			"classname" : "gs.tf.core.GenericMuxMultiReceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericMuxMultiReceiverTask$AbstractTargetReceiverTask", 
+					"int",
+					"int",
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService",
+					"[Ljava.lang.Object;"],
+				"arguments" : [
+					{
+						"type"  : "reference",
+						"value" : "synth_ds_visualization_receiver"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_total_in"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					},
+					{
+						"type" : "reference_obj_array",
+						"entry_type" : "java.lang.Object",						
+						"values" : [],
+						"numbers" : []
+					}
+				]
+			}
+		},
+		"motif_detectors" : {
+			"classname" : "gs.tf.core.GenericMultiTransceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"java.util.Collection", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.mdp.motifs.MotifDetectorTransceiver",
+						"values" : ["motif_detector_transceiver"],
+						"numbers" : ["num_numeric_in"]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}
+		},
+		"f1_mux_junction" : {
+			"classname" : "gs.tf.core.GenericJunctionMultiTransceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["int", "java.lang.Integer", "java.lang.Long", "int", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "num_numeric_in"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}
+		},
+		"f1_mux_junction_transmitter" : {
+			"classname" : "gs.tf.core.MultiTransmitterTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "static_method",
+				"method_location" : "gs.tf.core.GenericJunctionMultiTransceiverTask",
+				"methodname" : "createMultiTransmitterFromJunction",
+				"argument_types" : ["gs.tf.core.GenericJunctionMultiTransceiverTask"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "f1_mux_junction"
+					}
+				]
+			}
+		},
+		"f1_mux_receiver" : {
+			"classname" : "gs.tf.core.GenericMuxMultiReceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericMuxMultiReceiverTask$AbstractTargetReceiverTask", 
+					"int",
+					"int",
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService",
+					"[Ljava.lang.Object;"],
+				"arguments" : [
+					{
+						"type" : "reference",
+						"value" : "f1_motif_evaluation_receiver"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_numeric_in"
+					},
+					{
+						"type" : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					},
+					{
+						"type" : "reference_obj_array",
+						"entry_type" : "java.lang.Object",						
+						"values" : [],
+						"numbers" : []
+					}
+				]
+			}
+		},		
+		"language_model_mux" : {
+			"classname" : "gs.tf.core.GenericSyncMuxMultiReceiverTask",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : [
+					"gs.tf.core.GenericMuxMultiReceiverTask$AbstractTargetReceiverTask", 
+					"int",
+					"int",
+					"java.lang.Integer",
+					"java.lang.Long",
+					"java.util.concurrent.ExecutorService",
+					"[Ljava.lang.Object;"],
+				"arguments" : [
+					{
+						"type"  : "reference",
+						"value" : "language_model_receiver"
+					},
+					{
+						"type" : "reference",
+						"value" : "num_total_in"
+					},
+					{
+						"type"  : "reference",
+						"value" : "max_data_chunk_size"
+					},
+					{
+						"type"  : "reference",						
+						"value" : "lang_mux_in_queue_capacity"
+					},
+					{
+						"type" : "reference",
+						"value" : "in_queue_add_timeout"
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					},
+					{
+						"type" : "reference_obj_array",
+						"entry_type" : "java.lang.Long",
+						"values" : ["language_model_mux_timeout", "language_model_sync_mux_rnd_seed"],
+						"numbers" : [1,1]
+					}
+				]
+			}
+		}		
+	},
+	"closed_multi_task_chain" : {
+		"01_main" : {
+			"classname" : "gs.tf.core.GenericClosedMultiTaskChain",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.util.Collection", "java.util.Map", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.tf.core.MultiTask",
+						"values" : ["synth_ds_demux", "synth_ds_junction", "motif_detectors", "f1_mux_junction", "language_model_mux"],
+						"numbers" : [1,1,1,1,1]
+					},
+					{
+						"type" : "reference_map",
+						"entry_types" : ["gs.tf.core.MultiTask", "gs.tf.core.MultiTask"],
+						"value" : [
+							{"synth_ds_demux" : ["synth_ds_junction"]},
+							{"synth_ds_junction" : ["motif_detectors", "language_model_mux"]},
+							{"motif_detectors" : ["f1_mux_junction"]},
+							{"f1_mux_junction" : ["language_model_mux"]}
+						]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}			
+		},
+		"02_visualization" : {
+			"classname" : "gs.tf.core.GenericClosedMultiTaskChain",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.util.Collection", "java.util.Map", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.tf.core.MultiTask",
+						"values" : ["synth_ds_junction_transmitter", "synth_ds_visualization_mux"],
+						"numbers" : [1,1]
+					},
+					{
+						"type" : "reference_map",
+						"entry_types" : ["gs.tf.core.MultiTask", "gs.tf.core.MultiTask"],
+						"value" : [
+							{"synth_ds_junction_transmitter" : ["synth_ds_visualization_mux"]}
+						]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}			
+		},
+		"03_f1_motiv_evaluation" : {
+			"classname" : "gs.tf.core.GenericClosedMultiTaskChain",
+			"reuse_as_arg" : true,
+			"creation" : {
+				"type" : "constructor",
+				"argument_types" : ["java.util.Collection", "java.util.Map", "java.util.concurrent.ExecutorService"],
+				"arguments" : [
+					{
+						"type" : "reference_list",
+						"entry_type" : "gs.tf.core.MultiTask",
+						"values" : ["f1_mux_junction_transmitter", "f1_mux_receiver"],
+						"numbers" : [1,1]
+					},
+					{
+						"type" : "reference_map",
+						"entry_types" : ["gs.tf.core.MultiTask", "gs.tf.core.MultiTask"],
+						"value" : [
+							{"f1_mux_junction_transmitter" : ["f1_mux_receiver"]}
+						]
+					},
+					{
+						"type" : "reference",
+						"value" : "executor_service"
+					}
+				]
+			}			
+		}						
+	}
+}

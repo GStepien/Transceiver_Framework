@@ -1,0 +1,3 @@
+[submodule "mdp/mdp/submodules/SDG"]
+	path = mdp/mdp/submodules/SDG
+	url = https://github.com/GStepien/SDG.git

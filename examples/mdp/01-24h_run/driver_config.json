@@ -1,0 +1,5 @@
+{
+	"root_configs" : [		
+		"./examples/mdp/01-24h_run/config/root_config.json"
+	]
+}

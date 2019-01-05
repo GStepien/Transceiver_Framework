@@ -1,0 +1,5 @@
+{
+	"root_configs" : [
+		"./examples/transceiver_framework/muxdemux/config/root_config.json"
+	]
+}

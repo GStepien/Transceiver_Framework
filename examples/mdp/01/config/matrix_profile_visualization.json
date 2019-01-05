@@ -1,0 +1,14 @@
+{
+	"ds_visualization" : {
+			"assertions_status" : false,
+			"replot_min_interval" : 10000,
+			"max_x_progress_factor" : 0.1,
+			"plot_width" : 1350,
+			"plot_height" : null,
+			"plot_height_per_graph" : 140,
+			"window_label" : "Matrix Profile Graph(s)",
+			"color_rnd_seed" : 385921,
+			"visualization_r_path" : "./mdp/mdp/submodules/SDG/datastream/alphanum_iterators.R",
+			"first_plot_out_path" : "./../../../../examples/mdp/01/images/matrix_profiles.svg"
+		}
+}

@@ -1,0 +1,9 @@
+{
+	"transceiver_structure_json" : "./examples/transceiver_framework/muxdemux/config/transceiver_structure.json",
+	"run_for" : 60000,
+	"logger_level" : "ALL",
+	"below_info_log_file" : "./examples/transceiver_framework/muxdemux/logs/belowInfoOut.log",
+	"info_log_file" : "./examples/transceiver_framework/muxdemux/logs/infoOut.log",
+	"warning_and_above_log_file" : "./examples/transceiver_framework/muxdemux/logs/warnAndErrOut.log",
+	"main_sleep_interval" : 5000
+}

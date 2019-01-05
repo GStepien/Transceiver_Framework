@@ -1,0 +1,19 @@
+{
+	"general" : {
+		"assertions_status" : false,
+	   	"numeric_iterators_num" : 2,
+        "character_iterators_num" : 2,
+		"idle_event_name" : "idle"
+	},	
+	
+	"language_model" : {
+		"num_voc" : ["NA", "MOTIF_BEGIN"],
+		"char_voc" : ["NA"],
+		"char_voc_duplicates" : [
+			{"char_label" : 200}],
+		
+		"max_history_length" : 100,
+        "simple_smooth_factor" : 0.0,
+		"json_file" : "./../../../../examples/mdp/01/models/trained_lm.lm"
+	}
+}
